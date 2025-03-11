@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Branding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
     <style>
         /* General Styles */
         :root {
@@ -37,6 +36,7 @@
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            position: relative; /* Untuk posisi ikon bulan */
         }
 
         .highlight {
@@ -49,6 +49,7 @@
             color: #fff;
             padding: 100px 0;
             text-align: center;
+            position: relative; /* Untuk posisi ikon bulan */
         }
 
         #hero h1 {
@@ -59,6 +60,24 @@
         #hero p {
             font-size: 18px;
             margin-bottom: 40px;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode-toggle i {
+            font-size: 24px;
+            color: #fff;
         }
 
         /* Social Links */
@@ -93,6 +112,16 @@
                 flex-direction: column;
                 gap: 10px;
             }
+
+            .dark-mode-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 8px;
+            }
+
+            .dark-mode-toggle i {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -100,7 +129,12 @@
     <!-- Hero Section -->
     <section id="hero">
         <div class="container">
-            <h1>Halo, Saya <span class="highlight">Mochammad Fauzi</span></h1>
+            <!-- Dark Mode Toggle -->
+            <div class="dark-mode-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+
+            <h1> <span class="highlight">Mochammad Fauzi</span></h1>
             <p>Seorang <span class="highlight">Web Developer & Desainer Grafis</span> yang berdedikasi untuk memberikan solusi terbaik.</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/johndoe" target="_blank" title="LinkedIn">
@@ -112,7 +146,7 @@
                 <a href="https://www.instagram.com/fauzinrfdlh10_?igsh=bHlvandibGpraXM0" target="_blank" title="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="nurfadilahmfauzi@gmail.com.com" title="Email">
+                <a href="mailto:nurfadilahmfauzi@gmail.com" title="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -120,23 +154,32 @@
     </section>
 
     <script>
-        // Dark Mode Toggle (Opsional)
-        const darkModeToggle = document.createElement('div');
-        darkModeToggle.className = 'dark-mode-toggle';
-        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        document.body.appendChild(darkModeToggle);
-
+        // Dark Mode Toggle
+        const darkModeToggle = document.querySelector('.dark-mode-toggle');
         const body = document.body;
 
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             const isDarkMode = body.classList.contains('dark-mode');
             localStorage.setItem('dark-mode', isDarkMode);
+
+            // Ganti ikon bulan/matahari
+            const icon = darkModeToggle.querySelector('i');
+            if (isDarkMode) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
         });
 
         // Check Local Storage for Dark Mode
         if (localStorage.getItem('dark-mode') === 'true') {
             body.classList.add('dark-mode');
+            const icon = darkModeToggle.querySelector('i');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
         }
     </script>
 </body>
