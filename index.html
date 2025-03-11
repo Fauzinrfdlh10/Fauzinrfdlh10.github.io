@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Personal Branding</title>
+    <title>Personal Branding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* General Styles */
         :root {
@@ -38,65 +36,10 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            text-align: center;
         }
 
         .highlight {
-            color: var(--primary-color);
-        }
-
-        /* Dark Mode Toggle */
-        .dark-mode-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            z-index: 1000;
-            background-color: var(--primary-color);
-            padding: 10px;
-            border-radius: 50%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .dark-mode-toggle i {
-            font-size: 24px;
-            color: #fff;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--secondary-color);
-            color: #fff;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        header .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        header nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        header nav ul li {
-            margin-left: 20px;
-        }
-
-        header nav ul li a {
-            color: #fff;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        header nav ul li a:hover {
             color: var(--primary-color);
         }
 
@@ -104,258 +47,40 @@
         #hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: #fff;
-            padding: 150px 0;
+            padding: 100px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
         #hero h1 {
-            font-size: 48px;
+            font-size: 36px;
             margin-bottom: 20px;
-            transform: translateY(50px);
-            opacity: 0;
         }
 
         #hero p {
-            font-size: 24px;
+            font-size: 18px;
             margin-bottom: 40px;
-            transform: translateY(50px);
-            opacity: 0;
         }
 
-        #hero .btn {
-            transform: translateY(50px);
-            opacity: 0;
-            background-color: #fff;
-            color: var(--primary-color);
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        #hero .btn:hover {
-            background-color: var(--secondary-color);
-            color: #fff;
-        }
-
-        /* About Section */
-        #about {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .about-content {
+        /* Social Links */
+        .social-links {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap; /* Responsif: wrap pada layar kecil */
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            transform: scale(0);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Portfolio Section */
-        #portfolio {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            margin-top: 20px;
         }
 
-        .portfolio-item {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            transform: translateY(50px);
-            opacity: 0;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .portfolio-item img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-
-        /* Services Section */
-        #services {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .service-item {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            transform: translateY(50px);
-            opacity: 0;
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-item i {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        /* Testimonials Section */
-        #testimonials {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .testimonial-item {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transform: translateY(50px);
-            opacity: 0;
-        }
-
-        /* Contact Section */
-        #contact {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        #contact form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        #contact form input, #contact form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        #contact form button {
-            width: 100%;
-            padding: 10px;
-            background-color: var(--primary-color);
+        .social-links a {
             color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #contact form button:hover {
-            background-color: #5A52E0; /* Warna ungu yang lebih gelap */
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        footer .social-links {
-            margin-top: 10px;
-        }
-
-        footer .social-links a {
-            color: #fff;
-            margin: 0 10px;
-            font-size: 20px;
+            font-size: 24px;
             transition: color 0.3s ease;
         }
 
-        footer .social-links a:hover {
+        .social-links a:hover {
             color: var(--primary-color);
         }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
-            /* Header */
-            header nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            header nav ul li {
-                margin: 10px 0;
-            }
-
-            /* Hero Section */
-            #hero h1 {
-                font-size: 36px;
-            }
-
-            #hero p {
-                font-size: 18px;
-            }
-
-            /* About Section */
-            .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .profile-img {
-                margin-bottom: 20px;
-            }
-
-            /* Portfolio Section */
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-
-            /* Services Section */
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-
-            /* Testimonials Section */
-            .testimonials-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-        }
-
-        @media (max-width: 480px) {
-            /* Hero Section */
             #hero h1 {
                 font-size: 28px;
             }
@@ -364,249 +89,43 @@
                 font-size: 16px;
             }
 
-            /* About Section */
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-
-            /* Portfolio Section */
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-
-            /* Services Section */
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-
-            /* Testimonials Section */
-            .testimonials-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            .social-links {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Dark Mode Toggle -->
-    <div class="dark-mode-toggle">
-        <i class="fas fa-moon"></i>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">John Doe</div>
-            <nav>
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
     <!-- Hero Section -->
     <section id="hero">
         <div class="container">
-            <h1>Halo, Saya <span class="highlight">John Doe</span></h1>
+            <h1>Halo, Saya <span class="highlight">Mochammad Fauzi</span></h1>
             <p>Seorang <span class="highlight">Web Developer & Desainer Grafis</span> yang berdedikasi untuk memberikan solusi terbaik.</p>
-            <a href="#contact" class="btn">Hubungi Saya</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>Tentang Saya</h2>
-            <div class="about-content">
-                <img src="profile.jpg" alt="Profile Picture" class="profile-img">
-                <p>Saya adalah seorang <span class="highlight">Web Developer & Desainer Grafis</span> dengan pengalaman lebih dari <span class="highlight">5 tahun</span> di industri <span class="highlight">Teknologi dan Kreatif</span>. Saya memiliki keahlian dalam <span class="highlight">Pengembangan Website, Desain UI/UX, dan Digital Marketing</span>, dan saya selalu berusaha untuk memberikan hasil terbaik kepada klien saya.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <div class="container">
-            <h2>Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="project1.jpg" alt="Project 1">
-                    <h3>Website Toko Online</h3>
-                    <p>Desain dan pengembangan website toko online untuk brand fashion lokal.</p>
-                </div>
-                <div class="portfolio-item">
-                    <img src="project2.jpg" alt="Project 2">
-                    <h3>Aplikasi Manajemen Proyek</h3>
-                    <p>Pengembangan aplikasi manajemen proyek dengan fitur kolaborasi tim.</p>
-                </div>
-                <div class="portfolio-item">
-                    <img src="project3.jpg" alt="Project 3">
-                    <h3>Branding & Logo Design</h3>
-                    <p>Desain branding dan logo untuk startup teknologi.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <h2>Layanan</h2>
-            <div class="services-grid">
-                <div class="service-item">
-                    <i class="fas fa-paint-brush"></i>
-                    <h3>Desain Grafis</h3>
-                    <p>Layanan desain grafis profesional untuk kebutuhan branding Anda, termasuk logo, banner, dan materi promosi.</p>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-code"></i>
-                    <h3>Pengembangan Web</h3>
-                    <p>Pengembangan website custom sesuai kebutuhan bisnis Anda, dari company profile hingga e-commerce.</p>
-                </div>
-                <div class="service-item">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Digital Marketing</h3>
-                    <p>Strategi digital marketing untuk meningkatkan visibilitas online Anda, termasuk SEO, ads, dan media sosial.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <div class="container">
-            <h2>Testimoni</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-item">
-                    <p>"John sangat profesional dan hasil kerjanya selalu memuaskan. Sangat direkomendasikan!"</p>
-                    <h3>- Jane Doe, CEO Company XYZ</h3>
-                </div>
-                <div class="testimonial-item">
-                    <p>"Proyek kami selesai tepat waktu dengan kualitas yang luar biasa. Terima kasih banyak!"</p>
-                    <h3>- John Smith, Founder Startup ABC</h3>
-                </div>
-                <div class="testimonial-item">
-                    <p>"Hasilnya melebihi ekspektasi kami. John benar-benar memahami kebutuhan kami."</p>
-                    <h3>- Sarah Lee, Marketing Manager</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Kontak</h2>
-            <form id="contact-form">
-                <input type="text" name="name" placeholder="Nama Anda" required>
-                <input type="email" name="email" placeholder="Email Anda" required>
-                <textarea name="message" placeholder="Pesan Anda" required></textarea>
-                <button type="submit" class="btn">Kirim Pesan</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 John Doe. All rights reserved.</p>
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/johndoe" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://wa.me/6285722341788" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/fauzinrfdlh10_?igsh=bHlvandibGpraXM0" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="nurfadilahmfauzi@gmail.com.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
-    </footer>
+    </section>
 
     <script>
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
+        // Dark Mode Toggle (Opsional)
+        const darkModeToggle = document.createElement('div');
+        darkModeToggle.className = 'dark-mode-toggle';
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        document.body.appendChild(darkModeToggle);
 
-        // Hero Section Animation
-        gsap.from("#hero h1", {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            ease: "power3.out",
-            delay: 0.5
-        });
-
-        gsap.from("#hero p", {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            ease: "power3.out",
-            delay: 1
-        });
-
-        gsap.from("#hero .btn", {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            ease: "power3.out",
-            delay: 1.5
-        });
-
-        // About Section Animation
-        gsap.from(".profile-img", {
-            duration: 1,
-            scale: 0,
-            opacity: 0,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#about",
-                start: "top 80%",
-            }
-        });
-
-        // Portfolio Section Animation
-        gsap.from(".portfolio-item", {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#portfolio",
-                start: "top 80%",
-            }
-        });
-
-        // Services Section Animation
-        gsap.from(".service-item", {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#services",
-                start: "top 80%",
-            }
-        });
-
-        // Testimonials Section Animation
-        gsap.from(".testimonial-item", {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: "#testimonials",
-                start: "top 80%",
-            }
-        });
-
-        // Dark Mode Toggle
-        const darkModeToggle = document.querySelector('.dark-mode-toggle');
         const body = document.body;
 
         darkModeToggle.addEventListener('click', () => {
@@ -619,23 +138,6 @@
         if (localStorage.getItem('dark-mode') === 'true') {
             body.classList.add('dark-mode');
         }
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Form Submission
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Terima kasih! Pesan Anda telah terkirim.');
-            this.reset();
-        });
     </script>
 </body>
 </html>

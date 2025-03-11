@@ -1,0 +1,87 @@
+/* General Styles */
+:root {
+    --primary-color: #6C63FF; /* Ungu modern */
+    --secondary-color: #2C2C2C; /* Abu-abu gelap */
+    --background-color: #F5F5F5; /* Putih keabuan */
+    --text-color: #2C2C2C; /* Abu-abu gelap */
+    --dark-background: #1A1A1A; /* Hitam gelap */
+    --dark-text: #E0E0E0; /* Abu-abu muda */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 28px;
+    }
+
+    #hero p {
+        font-size: 16px;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
