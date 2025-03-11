@@ -1,11 +1,9 @@
-/* General Styles */
 :root {
-    --primary-color: #6C63FF; /* Ungu modern */
-    --secondary-color: #2C2C2C; /* Abu-abu gelap */
-    --background-color: #F5F5F5; /* Putih keabuan */
-    --text-color: #2C2C2C; /* Abu-abu gelap */
-    --dark-background: #1A1A1A; /* Hitam gelap */
-    --dark-text: #E0E0E0; /* Abu-abu muda */
+    --primary-color: #2C2C2C;
+    --background-color: #F5F5F5;
+    --text-color: #2C2C2C;
+    --dark-background: #1A1A1A;
+    --dark-text: #E0E0E0;
 }
 
 body {
@@ -30,16 +28,10 @@ body.dark-mode {
     text-align: center;
 }
 
-.highlight {
-    color: var(--primary-color);
-}
-
-/* Hero Section */
 #hero {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: #fff;
     padding: 100px 0;
     text-align: center;
+    position: relative;
 }
 
 #hero h1 {
@@ -47,12 +39,22 @@ body.dark-mode {
     margin-bottom: 20px;
 }
 
-#hero p {
-    font-size: 18px;
-    margin-bottom: 40px;
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Social Links */
+.dark-mode-toggle i {
+    font-size: 24px;
+}
+
+/* Social Links Styling */
 .social-links {
     display: flex;
     justify-content: center;
@@ -61,27 +63,22 @@ body.dark-mode {
 }
 
 .social-links a {
-    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--text-color);
+    color: var(--background-color);
     font-size: 24px;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .social-links a:hover {
-    color: var(--primary-color);
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    #hero h1 {
-        font-size: 28px;
-    }
-
-    #hero p {
-        font-size: 16px;
-    }
-
-    .social-links {
-        flex-direction: column;
-        gap: 10px;
-    }
+    transform: scale(1.2);
+    background: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
