@@ -29,6 +29,65 @@
             color: var(--dark-text);
         }
 
+        /* Navbar Styling */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--background-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .navbar.dark-mode {
+            background-color: var(--dark-background);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+            color: var(--text-color);
+        }
+
+        .navbar.dark-mode h1 {
+            color: var(--dark-text);
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navbar.dark-mode ul li a {
+            color: var(--dark-text);
+        }
+
+        .navbar ul li a:hover {
+            color: var(--primary-color);
+        }
+
         .container {
             width: 90%;
             max-width: 1200px;
@@ -37,7 +96,7 @@
         }
 
         #hero {
-            padding: 100px 0;
+            padding: 150px 0 100px;
             text-align: center;
             position: relative;
         }
@@ -45,6 +104,7 @@
         #hero h1 {
             font-size: 36px;
             margin-bottom: 20px;
+            animation: fadeInDown 1s ease-in-out;
         }
 
         .dark-mode-toggle {
@@ -56,6 +116,7 @@
             padding: 10px;
             border-radius: 50%;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
         }
 
         .dark-mode-toggle i {
@@ -68,6 +129,7 @@
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
+            animation: fadeInUp 1s ease-in-out;
         }
 
         .social-links a {
@@ -91,26 +153,48 @@
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Prestasi Section */
-        .achievements {
-            margin: 50px auto;
+        /* About Section */
+        #about {
+            padding: 50px 0;
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
 
-        .achievements h2 {
+        #about h2 {
             font-size: 28px;
             margin-bottom: 20px;
+            animation: fadeInDown 1s ease-in-out;
         }
 
-        .achievements-list {
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 50px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #skills h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .skills-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             padding: 0;
             list-style: none;
+            animation: fadeInUp 1s ease-in-out;
         }
 
-        .achievements-list li {
+        .skills-list li {
             background: var(--text-color);
             color: var(--background-color);
             padding: 20px;
@@ -118,57 +202,200 @@
             transition: transform 0.3s ease;
         }
 
-        .achievements-list li:hover {
+        .skills-list li:hover {
             transform: scale(1.05);
         }
 
-        .achievements-list a {
+        /* Projects Section */
+        #projects {
+            padding: 50px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #projects h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .projects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .projects-list li {
+            background: var(--text-color);
+            color: var(--background-color);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .projects-list li:hover {
+            transform: scale(1.05);
+        }
+
+        .projects-list a {
             text-decoration: none;
             color: var(--background-color);
             display: block;
         }
+
+        /* Contact Section */
+        #contact {
+            padding: 50px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #contact h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <h1>Mochammad Fauzi</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
     <section id="hero">
         <div class="container">
             <div class="dark-mode-toggle">
                 <i class="fas fa-moon"></i>
             </div>
-            <h1><span class="highlight">Mochammad Fauzi</span></h1>
-            <p>Seorang <span class="highlight">Web Developer & Desainer Grafis</span> yang berdedikasi untuk memberikan solusi terbaik.</p>
-        </div>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/fauzi-nurfadilah-2057982a5/" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://wa.me/6285722341788" target="_blank" title="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.instagram.com/fauzinrfdlh10_?igsh=bHlvandibGpraXM0" target="_blank" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="mailto:nurfadilahmfauzi@gmail.com" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
+            <h1><span class="highlight">Mochammad Fauzi Nur Fadillah</span></h1>
         </div>
     </section>
 
-    <section class="achievements">
-        <h2>Hal Yang Sudah Saya Kerjakan</h2>
-        <ul class="achievements-list">
-            <li><a href="https://happyippieecake.shop/">Pembuatan Website Happyppiecake</a></li>
-            <li><a href="https://fauzinrfdlh10.github.io/koperasi/">Pembuatan Website Portofolio Koperasi Pertambangan</a></li>
-            <li><a href="https://fauzinrfdlh10.github.io/percobaan.github.io/index.html">Website Basketball</a></li>
-        </ul>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Saya adalah seorang Web Developer dan Desainer Grafis dengan pengalaman lebih dari 3 tahun. Saya memiliki passion dalam menciptakan solusi digital yang kreatif dan fungsional. Saya selalu berusaha untuk terus belajar dan mengembangkan diri dalam bidang teknologi.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>HTML, CSS, JavaScript</li>
+                <li>python, php </li>
+                <li>UI/UX Design</li>
+                <li>Ubuntu</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <ul class="projects-list">
+                <li><a href="https://happyippieecake.shop/">Pembuatan Website Happyppiecake</a></li>
+                <li><a href="https://fauzinrfdlh10.github.io/koperasi/">Pembuatan Website Portofolio Koperasi Pertambangan</a></li>
+                <li><a href="https://fauzinrfdlh10.github.io/percobaan.github.io/index.html">Website Basketball</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Kontak</h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/fauzi-nurfadilah-2057982a5/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://wa.me/6285722341788" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/fauzinrfdlh10_?igsh=bHlvandibGpraXM0" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:nurfadilahmfauzi@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
     </section>
 
     <script>
         const darkModeToggle = document.querySelector('.dark-mode-toggle');
         const body = document.body;
+        const navbar = document.querySelector('.navbar');
 
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
+            navbar.classList.toggle('dark-mode');
             const isDarkMode = body.classList.contains('dark-mode');
             localStorage.setItem('dark-mode', isDarkMode);
 
@@ -179,10 +406,21 @@
 
         if (localStorage.getItem('dark-mode') === 'true') {
             body.classList.add('dark-mode');
+            navbar.classList.add('dark-mode');
             const icon = darkModeToggle.querySelector('i');
             icon.classList.remove('fa-moon');
             icon.classList.add('fa-sun');
         }
+
+        // Smooth scroll for navbar links
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
