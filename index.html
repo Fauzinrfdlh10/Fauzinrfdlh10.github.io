@@ -5,16 +5,275 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Branding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
     <style>
-       
+        :root {
+            --primary-color: #2C2C2C;
+            --background-color: #F5F5F5;
+            --text-color: #2C2C2C;
+            --dark-background: #1A1A1A;
+            --dark-text: #E0E0E0;
+            --navbar-light: rgba(255, 255, 255, 0.9);
+            --navbar-dark: rgba(26, 26, 26, 0.9);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-background);
+            color: var(--dark-text);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--navbar-light);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .navbar.dark-mode {
+            background-color: var(--navbar-dark);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+            color: var(--text-color);
+        }
+
+        .navbar.dark-mode h1 {
+            color: var(--dark-text);
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navbar.dark-mode ul li a {
+            color: var(--dark-text);
+        }
+
+        .navbar ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+
+        #hero {
+            background-image: url('images/bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            color: #fff;
+        }
+
+        #hero .container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #about {
+            padding: 120px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            margin-top: 100px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 80px 0;
+            background-color: var(--background-color);
+            text-align: center;
+        }
+
+        #skills.dark-mode {
+            background-color: var(--dark-background);
+        }
+
+        #skills .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .skills-list li:hover {
+            transform: translateY(-5px);
+            background-color: #444;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 80px 0;
+            background-color: var(--background-color);
+            text-align: center;
+        }
+
+        #projects.dark-mode {
+            background-color: var(--dark-background);
+        }
+
+        #projects .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .projects-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .projects-list li {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .projects-list li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .projects-list li:hover {
+            transform: translateY(-5px);
+            background-color: #444;
+        }
+
+        .projects-list li a:hover {
+            color: #FFD700;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 0;
+            background-color: var(--background-color);
+            text-align: center;
+        }
+
+        #contact.dark-mode {
+            background-color: var(--dark-background);
+        }
+
+        #contact .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 32px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: #FFD700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .skills-list li, .projects-list li {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
+            .social-links a {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <div class="navbar">
         <div class="container">
             <h1>Fauzi</h1>
+            <div class="dark-mode-toggle" id="dark-mode-toggle">
+                <i class="fas fa-moon" id="moon-icon"></i>
+                <i class="fas fa-sun" id="sun-icon" style="display: none;"></i>
+            </div>
             <ul id="navbar-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -23,14 +282,10 @@
             </ul>
         </div>
     </div>
-    </div>
 
     <!-- Hero Section -->
     <section id="hero">
         <div class="container">
-            <div class="dark-mode-toggle">
-                <i class="fas fa-moon"></i>
-            </div>
             <h1><span class="highlight">Mochammad Fauzi Nur Fadillah</span></h1>
             <p>Web Developer</p>
         </div>
@@ -50,7 +305,7 @@
             <h2>Skills</h2>
             <ul class="skills-list">
                 <li>HTML, CSS, JavaScript</li>
-                <li>python, php </li>
+                <li>Python, PHP</li>
                 <li>UI/UX Design</li>
                 <li>Ubuntu</li>
             </ul>
@@ -63,7 +318,7 @@
             <h2>Projects</h2>
             <ul class="projects-list">
                 <li><a href="https://happyippieecake.shop/">Pembuatan Website Happyppiecake</a></li>
-                <li><a href="https://fauzinrfdlh10.github.io/koperasi/">Pembuatan Website Portofolio Koperasi Pertambangan</a></li>
+                <li><a href="https://fauzinrfdlh10.github.io/koperasi/">Pembuatan Website Portofolio Koperasi</a></li>
                 <li><a href="https://fauzinrfdlh10.github.io/percobaan.github.io/index.html">Website Basketball</a></li>
             </ul>
         </div>
@@ -91,37 +346,24 @@
     </section>
 
     <script>
-        const darkModeToggle = document.querySelector('.dark-mode-toggle');
         const body = document.body;
         const navbar = document.querySelector('.navbar');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+        const skillsSection = document.getElementById('skills');
+        const projectsSection = document.getElementById('projects');
+        const contactSection = document.getElementById('contact');
 
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             navbar.classList.toggle('dark-mode');
+            skillsSection.classList.toggle('dark-mode');
+            projectsSection.classList.toggle('dark-mode');
+            contactSection.classList.toggle('dark-mode');
             const isDarkMode = body.classList.contains('dark-mode');
-            localStorage.setItem('dark-mode', isDarkMode);
-
-            const icon = darkModeToggle.querySelector('i');
-            icon.classList.toggle('fa-moon', !isDarkMode);
-            icon.classList.toggle('fa-sun', isDarkMode);
-        });
-
-        if (localStorage.getItem('dark-mode') === 'true') {
-            body.classList.add('dark-mode');
-            navbar.classList.add('dark-mode');
-            const icon = darkModeToggle.querySelector('i');
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-
-        // Smooth scroll for navbar links
-        document.querySelectorAll('.navbar a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+            moonIcon.style.display = isDarkMode ? 'none' : 'block';
+            sunIcon.style.display = isDarkMode ? 'block' : 'none';
         });
     </script>
 </body>
