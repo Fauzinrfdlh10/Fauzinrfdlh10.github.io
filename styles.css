@@ -49,6 +49,7 @@ body.dark-mode {
     color: var(--text-color);
 }
 
+
 .navbar.dark-mode h1 {
     color: var(--dark-text);
 }
@@ -95,6 +96,12 @@ body.dark-mode {
 
 #hero h1 {
     font-size: 36px;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+#hero p {
+    font-size: 26px;
     margin-bottom: 20px;
     animation: fadeInDown 1s ease-in-out;
 }
@@ -315,3 +322,19 @@ body.dark-mode {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+#about {
+    padding: 120px 0;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    margin-top: 100px;
+}
+
+#hero {
+    padding: 150px 0 100px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+ 
