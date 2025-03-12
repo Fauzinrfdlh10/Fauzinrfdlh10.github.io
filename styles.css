@@ -292,11 +292,26 @@ body.dark-mode {
 
 @keyframes fadeInUp {
     from {
-        opacity: 0;
+        opacity: 0; 
         transform: translateY(20px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+#hero {
+    background-image: url('images/bg.jpeg'); /* ganti dengan nama file background Anda */
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    color: #fff; /* warna teks */
+}
+
+#hero .container {
+    background-color: rgba(0, 0, 0, 0.5); /* warna background container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
