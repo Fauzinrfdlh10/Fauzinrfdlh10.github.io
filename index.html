@@ -33,6 +33,7 @@
             color: var(--text-color);
             background-color: var(--background-color);
             transition: background-color 0.3s, color 0.3s;
+            padding-top: 70px; /* Padding untuk navbar fixed */
         }
 
         body.dark-mode {
@@ -49,11 +50,15 @@
         .navbar {
             position: fixed;
             top: 0;
-            width: 100%;
+            width: 80%; /* Lebar navbar dikurangi */
             background-color: var(--navbar-light);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             transition: background-color 0.3s, box-shadow 0.3s;
+            margin: 0 auto; /* Menengahkan navbar */
+            left: 0;
+            right: 0;
+            border-radius: 10px; /* Tambahkan border-radius untuk tampilan yang lebih baik */
         }
 
         .navbar.dark-mode {
@@ -65,14 +70,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 5px 20px; /* Padding dikurangi */
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .navbar h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 20px; /* Ukuran font dikurangi */
             color: var(--text-color);
             font-weight: bold;
         }
@@ -86,7 +91,7 @@
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 20px;
+            gap: 15px; /* Gap dikurangi */
         }
 
         .navbar ul li {
@@ -98,6 +103,8 @@
             color: var(--text-color);
             font-weight: bold;
             transition: color 0.3s, transform 0.3s;
+            font-size: 14px; /* Ukuran font dikurangi */
+            padding: 5px 10px; /* Padding dikurangi */
         }
 
         .navbar.dark-mode ul li a {
@@ -118,10 +125,10 @@
         }
 
         .hamburger span {
-            height: 3px;
-            width: 25px;
+            height: 2px; /* Tinggi dikurangi */
+            width: 20px; /* Lebar dikurangi */
             background-color: var(--text-color);
-            margin: 4px 0;
+            margin: 3px 0; /* Margin dikurangi */
             transition: 0.4s;
         }
 
@@ -131,7 +138,7 @@
 
         /* Animasi Hamburger Menu */
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(45deg) translate(4px, 4px); /* Disesuaikan */
         }
 
         .hamburger.active span:nth-child(2) {
@@ -139,7 +146,7 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+            transform: rotate(-45deg) translate(4px, -4px); /* Disesuaikan */
         }
 
         /* Responsive Navbar */
@@ -171,7 +178,7 @@
 
             .navbar ul li {
                 text-align: center;
-                padding: 15px 0;
+                padding: 10px 0; /* Padding dikurangi */
             }
         }
 
@@ -295,11 +302,13 @@
             gap: 10px;
             background-color: var(--primary-color);
             color: #fff;
-            padding: 15px 30px;
+            padding: 10px 20px; /* Padding yang lebih kecil */
             border-radius: 25px;
-            font-size: 18px;
+            font-size: 16px; /* Ukuran font yang lebih kecil */
             font-weight: bold;
             transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 150px; /* Lebar maksimum untuk skill item */
         }
 
         .skills-list li i {
@@ -343,13 +352,13 @@
             gap: 20px;
             background-color: var(--primary-color);
             color: #fff;
-            padding: 20px;
+            padding: 15px; /* Padding yang lebih kecil */
             border-radius: 15px;
-            font-size: 18px;
+            font-size: 16px; /* Ukuran font yang lebih kecil */
             font-weight: bold;
             transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
             width: 100%;
-            max-width: 600px;
+            max-width: 400px; /* Lebar maksimum untuk project item */
             margin: 0 auto;
         }
 
@@ -363,12 +372,12 @@
 
         .projects-list li h3 {
             margin: 0;
-            font-size: 20px;
+            font-size: 18px; /* Ukuran font yang lebih kecil untuk judul project */
         }
 
         .projects-list li p {
             margin: 10px 0;
-            font-size: 14px;
+            font-size: 14px; /* Ukuran font yang lebih kecil untuk deskripsi project */
             font-weight: normal;
         }
 
@@ -407,11 +416,11 @@
         .contact-card {
             background-color: var(--primary-color);
             color: #fff;
-            padding: 40px;
+            padding: 20px; /* Padding yang lebih kecil */
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             text-align: center;
-            max-width: 400px;
+            max-width: 300px; /* Lebar maksimum untuk kartu kontak */
             width: 100%;
             margin: 0 auto;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -424,13 +433,13 @@
 
         .contact-card h3 {
             margin-top: 0;
-            font-size: 24px;
+            font-size: 20px; /* Ukuran font yang lebih kecil untuk judul kontak */
             margin-bottom: 20px;
         }
 
         .contact-card p {
             margin: 15px 0;
-            font-size: 16px;
+            font-size: 14px; /* Ukuran font yang lebih kecil untuk teks kontak */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -451,11 +460,11 @@
 
         .social-icon {
             color: #fff;
-            font-size: 32px;
+            font-size: 24px; /* Ukuran font yang lebih kecil untuk ikon sosial */
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 15px; /* Padding yang lebih kecil */
             border-radius: 10px;
             background-color: rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -527,6 +536,20 @@
 
             .about-text p {
                 font-size: 14px;
+            }
+
+            /* Perbaikan layout skills dan projects untuk mode HP */
+            .skills-list li {
+                max-width: 100%; /* Lebar penuh untuk mode HP */
+            }
+
+            .projects-list li {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .projects-list li i {
+                margin-bottom: 10px;
             }
         }
 
