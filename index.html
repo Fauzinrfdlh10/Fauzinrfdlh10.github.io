@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YJVT34GBM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4YJVT34GBM');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YJVT34GBM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4YJVT34GBM');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="6iq_7M4610OivD1YUiKr8-It9xBOVcZChSTGxwBHhcI" />
@@ -230,7 +229,6 @@
         #about {
             padding: 80px 20px;
             text-align: center;
-            animation: fadeIn 1s ease-in-out;
         }
 
         #about .container {
@@ -263,15 +261,6 @@
             margin: 0 0 20px 0;
             font-size: 16px;
             line-height: 1.8;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
         }
 
         /* Skills Section */
@@ -607,7 +596,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="fade-in">
+    <section id="about">
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
@@ -683,7 +672,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="dark-mode fade-in">
+    <section id="contact" class="dark-mode">
         <div class="container">
             <h2>Kontak</h2>
             <div class="contact-content">
@@ -747,34 +736,105 @@
             navbarMenu.classList.toggle('active');
         });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const fadeInElements = document.querySelectorAll('.fade-in');
-
-            const checkVisibility = () => {
-                fadeInElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementBottom = element.getBoundingClientRect().bottom;
-                    const isVisible = (elementTop < window.innerHeight) && (elementBottom >= 0);
-
-                    if (isVisible) {
-                        element.classList.add('visible');
-                    } else {
-                        element.classList.remove('visible');
-                    }
-                });
-            };
-
-            window.addEventListener('scroll', checkVisibility);
-            window.addEventListener('resize', checkVisibility);
-
-            // Initial check
-            checkVisibility();
-        });
-
         // Loading Animation
         window.addEventListener('load', () => {
             const loading = document.getElementById('loading');
             loading.style.display = 'none';
+        });
+    </script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Inisialisasi ScrollReveal
+        ScrollReveal({ reset: true });
+
+        // Animasi untuk Hero Section
+        ScrollReveal().reveal('#hero .container', {
+            delay: 300,
+            distance: '50px',
+            origin: 'bottom',
+            duration: 1000,
+        });
+
+        // Animasi untuk About Section
+        ScrollReveal().reveal('#about .container', {
+            delay: 300,
+            distance: '50px',
+            origin: 'left',
+            duration: 1000,
+        });
+
+        // Animasi untuk Skills Section
+        ScrollReveal().reveal('#skills .container', {
+            delay: 300,
+            distance: '50px',
+            origin: 'right',
+            duration: 1000,
+        });
+
+        // Animasi untuk Projects Section
+        ScrollReveal().reveal('#projects .container', {
+            delay: 300,
+            distance: '50px',
+            origin: 'bottom',
+            duration: 1000,
+        });
+
+        // Animasi untuk Contact Section
+        ScrollReveal().reveal('#contact .container', {
+            delay: 300,
+            distance: '50px',
+            origin: 'top',
+            duration: 1000,
+        });
+
+        // Animasi untuk Footer
+        ScrollReveal().reveal('footer', {
+            delay: 300,
+            distance: '50px',
+            origin: 'bottom',
+            duration: 1000,
+        });
+
+        // Animasi untuk gambar profil di About Section
+        ScrollReveal().reveal('.profile-image', {
+            delay: 500,
+            distance: '50px',
+            origin: 'left',
+            duration: 1000,
+        });
+
+        // Animasi untuk teks di About Section
+        ScrollReveal().reveal('.about-text', {
+            delay: 700,
+            distance: '50px',
+            origin: 'right',
+            duration: 1000,
+        });
+
+        // Animasi untuk setiap skill di Skills Section
+        ScrollReveal().reveal('.skills-list li', {
+            delay: 300,
+            distance: '50px',
+            origin: 'bottom',
+            interval: 200, // Animasi berurutan dengan jeda 200ms
+            duration: 1000,
+        });
+
+        // Animasi untuk setiap project di Projects Section
+        ScrollReveal().reveal('.projects-list li', {
+            delay: 300,
+            distance: '50px',
+            origin: 'bottom',
+            interval: 200, // Animasi berurutan dengan jeda 200ms
+            duration: 1000,
+        });
+
+        // Animasi untuk kartu kontak di Contact Section
+        ScrollReveal().reveal('.contact-card', {
+            delay: 300,
+            distance: '50px',
+            origin: 'top',
+            duration: 1000,
         });
     </script>
     <script type="module" src="https://cdn.jsdelivr.net/gh/domyid/tracker@latest/index.js"></script>
