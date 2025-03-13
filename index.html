@@ -37,6 +37,7 @@
             scroll-behavior: smooth;
         }
 
+        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
@@ -100,24 +101,12 @@
             transform: translateY(-2px);
         }
 
-        .dark-mode-toggle {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            font-size: 24px;
-            margin: 0 10px;
-            transition: transform 0.3s;
-        }
-
-        .dark-mode-toggle:hover {
-            transform: scale(1.1);
-        }
-
         /* Hamburger Menu */
         .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
+            z-index: 1001;
         }
 
         .hamburger span {
@@ -132,20 +121,36 @@
             background-color: var(--dark-text);
         }
 
+        /* Animasi Hamburger Menu */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Responsive Navbar */
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
             }
 
             .navbar ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
                 background-color: var(--navbar-light);
-                position: absolute;
-                top: 60px;
-                left: 0;
-                padding: 10px 0;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 60px;
+                transition: right 0.3s ease;
             }
 
             .navbar.dark-mode ul {
@@ -153,15 +158,16 @@
             }
 
             .navbar ul.active {
-                display: flex;
+                right: 0;
             }
 
             .navbar ul li {
                 text-align: center;
-                padding: 10px 0;
+                padding: 15px 0;
             }
         }
 
+        /* Hero Section */
         #hero {
             background-image: url('images/bg.jpeg');
             background-size: cover;
@@ -491,8 +497,9 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar .container {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .navbar ul {
@@ -552,85 +559,6 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
-        /* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger span {
-    height: 3px;
-    width: 25px;
-    background-color: var(--text-color);
-    margin: 4px 0;
-    transition: 0.4s;
-}
-
-.navbar.dark-mode .hamburger span {
-    background-color: var(--dark-text);
-}
-
-@media (max-width: 768px) {
-    .navbar .container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .navbar ul {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100vh;
-        background-color: var(--navbar-light);
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 60px;
-        transition: right 0.3s ease;
-    }
-
-    .navbar.dark-mode ul {
-        background-color: var(--navbar-dark);
-    }
-
-    .navbar ul.active {
-        right: 0;
-    }
-
-    .hamburger {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        z-index: 1001;
-    }
-
-    .hamburger span {
-        height: 3px;
-        width: 25px;
-        background-color: var(--text-color);
-        margin: 4px 0;
-        transition: 0.4s;
-    }
-
-    .navbar.dark-mode .hamburger span {
-        background-color: var(--dark-text);
-    }
-
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-}
     </style>
 </head>
 <body class="dark-mode">
@@ -639,6 +567,7 @@
         <div class="loading-spinner"></div>
     </div>
 
+    <!-- Navbar -->
     <div class="navbar dark-mode">
         <div class="container">
             <h1>Fauzi</h1>
@@ -682,6 +611,7 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="dark-mode">
         <div class="container">
             <h2>Skills</h2>
@@ -710,6 +640,7 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects" class="dark-mode">
         <div class="container">
             <h2>Projects</h2>
@@ -803,6 +734,7 @@
         });
 
         hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
             navbarMenu.classList.toggle('active');
         });
 
