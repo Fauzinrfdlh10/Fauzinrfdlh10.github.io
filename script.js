@@ -123,3 +123,17 @@ document.getElementById('e-kartu-nama').addEventListener('click', function(event
     event.preventDefault(); // Mencegah perilaku default link
     window.location.href = this.href; // Pindah ke halaman yang dituju
 });
+
+// Tambahkan kode berikut pada file script.js
+
+// Pilih elemen hamburger dan navbar menu
+const hamburger = document.getElementById('hamburger');
+const navbarMenu = document.getElementById('navbar-menu');
+
+// Tambahkan event listener pada hamburger
+hamburger.addEventListener('click', () => {
+  // Tambahkan kelas active pada hamburger
+  hamburger.classList.toggle('active');
+  // Tampilkan atau sembunyikan navbar menu
+  navbarMenu.classList.toggle('show');
+});

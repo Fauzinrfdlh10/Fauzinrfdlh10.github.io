@@ -17,6 +17,7 @@ body {
     background-color: var(--background-color);
     transition: background-color 0.3s, color 0.3s;
     padding-top: 90px; /* Padding untuk navbar fixed */
+    background-attachment: fixed; /* Tambahkan properti background-attachment */
 }
 
 body.dark-mode {
@@ -105,71 +106,80 @@ html {
     transform: translateY(-2px);
 }
 
+/* Tambahkan kode berikut pada file styles.css */
+
+/* Sembunyikan navbar menu pada mode hp */
+#navbar-menu {
+    display: none;
+  }
+  
+  /* Tampilkan navbar menu pada mode hp saat hamburger diklik */
+  #navbar-menu.show {
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 20px;
+    border-bottom: 1px solid #fff;
+  }
+  
+  /* Ubah tampilan navbar menu pada mode hp */
+  #navbar-menu.show li {
+    margin-bottom: 10px;
+  }
+  
+  #navbar-menu.show li a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Tambahkan kode berikut pada file styles.css */
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.hamburger span {
-    height: 2px;
-    width: 20px;
-    background-color: var(--text-color);
-    margin: 3px 0;
-    transition: 0.4s;
-}
-
-.navbar.dark-mode .hamburger span {
-    background-color: var(--dark-text);
-}
-
-/* Animasi Hamburger Menu */
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(4px, -4px);
-}
-
-/* Responsive Navbar */
-@media (max-width: 768px) {
+  }
+  
+  /* Tampilkan hamburger menu pada mode hp */
+  @media (max-width: 768px) {
     .hamburger {
-        display: flex;
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
     }
-
-    .navbar ul {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 60%; /* Lebar navbar saat mode HP diperkecil */
-        height: 100vh;
-        background-color: var(--navbar-light);
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 80px; /* Padding atas diperbesar */
-        transition: right 0.3s ease, width 0.3s ease;
+    .hamburger span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: #fff;
+      margin-bottom: 5px;
+      transition: all 0.3s;
     }
-
-    .navbar.dark-mode ul {
-        background-color: var(--navbar-dark);
+    .hamburger span:nth-child(2) {
+      width: 20px;
     }
-
-    .navbar ul.active {
-        right: 0;
+    .hamburger span:last-child {
+      width: 20px;
     }
-
-    .navbar ul li {
-        text-align: center;
-        padding: 15px 0; /* Padding link navbar saat mode HP diperbesar */
-    }
-}
+  }
+  
+  /* Ubah tampilan hamburger menu saat diklik */
+  .hamburger.active span {
+    background-color: #fff;
+  }
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
 
 /* Hero Section */
 #hero {
