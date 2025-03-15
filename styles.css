@@ -106,97 +106,67 @@ html {
     transform: translateY(-2px);
 }
 
-/* Tambahkan kode berikut pada file styles.css */
 /* Hamburger Menu */
 .hamburger {
     display: none;
-  }
-  
-  /* Tampilkan hamburger menu pada mode hp */
-  @media (max-width: 768px) {
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    height: 2px;
+    width: 20px;
+    background-color: var(--text-color);
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+.navbar.dark-mode .hamburger span {
+    background-color: var(--dark-text);
+}
+
+/* Animasi Hamburger Menu */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+@media (max-width: 768px) {
     .hamburger {
-      display: block;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
     }
-    .hamburger span {
-      display: block;
-      width: 30px;
-      height: 3px;
-      background-color: #fff;
-      margin-bottom: 5px;
-      transition: all 0.3s;
+    .navbar ul {
+        display: none;
     }
-    .hamburger span:nth-child(2) {
-      width: 20px;
+    .navbar ul.active {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--navbar-light);
+        padding: 20px;
+        border-bottom: 1px solid #fff;
     }
-    .hamburger span:last-child {
-      width: 20px;
+    .navbar.dark-mode ul.active {
+        background-color: var(--navbar-dark);
     }
-  }
-  
-  /* Ubah tampilan hamburger menu saat diklik */
-  .hamburger.active span {
-    background-color: #fff;
-  }
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-  
-  /* Sembunyikan navbar menu pada mode hp */
-  .navbar-menu {
-    display: none;
-  }
-  
-  /* Tampilkan navbar menu pada mode hp saat hamburger diklik */
-  .navbar-menu.active {
-    display: block;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    padding: 20px;
-    border-bottom: 1px solid #fff;
-  }
-  
-  /* Ubah tampilan navbar menu pada mode hp */
-  .navbar-menu.active li {
-    margin-bottom: 10px;
-  }
-  
-  .navbar-menu.active li a {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .hamburger span {
-    transition: all 0.3s;
-  }
-  
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-    transition: all 0.3s;
-  }
-  
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-    transition: all 0.3s;
-  }
-  
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-    transition: all 0.3s;
-  }
-
+    .navbar ul li {
+        text-align: center;
+        padding: 15px 0;
+    }
+}
 
 /* Hero Section */
 #hero {
