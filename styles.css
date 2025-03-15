@@ -108,35 +108,6 @@ html {
 
 /* Tambahkan kode berikut pada file styles.css */
 
-/* Sembunyikan navbar menu pada mode hp */
-#navbar-menu {
-    display: none;
-  }
-  
-  /* Tampilkan navbar menu pada mode hp saat hamburger diklik */
-  #navbar-menu.show {
-    display: block;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    padding: 20px;
-    border-bottom: 1px solid #fff;
-  }
-  
-  /* Ubah tampilan navbar menu pada mode hp */
-  #navbar-menu.show li {
-    margin-bottom: 10px;
-  }
-  
-  #navbar-menu.show li a {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  /* Tambahkan kode berikut pada file styles.css */
-
 /* Hamburger Menu */
 .hamburger {
     display: none;
@@ -179,6 +150,33 @@ html {
   }
   .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* Sembunyikan navbar menu pada mode hp */
+  .navbar-menu {
+    display: none;
+  }
+  
+  /* Tampilkan navbar menu pada mode hp saat hamburger diklik */
+  .navbar-menu.active {
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 20px;
+    border-bottom: 1px solid #fff;
+  }
+  
+  /* Ubah tampilan navbar menu pada mode hp */
+  .navbar-menu.active li {
+    margin-bottom: 10px;
+  }
+  
+  .navbar-menu.active li a {
+    color: #fff;
+    text-decoration: none;
   }
 
 /* Hero Section */
