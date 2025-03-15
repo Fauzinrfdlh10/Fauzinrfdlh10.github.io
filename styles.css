@@ -29,11 +29,10 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Navbar */
 .navbar {
     position: fixed;
     top: 0;
-    width: 80%;
+    width: 60%; /* Ubah ukuran navbar menjadi 60% */
     background-color: var(--navbar-light);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
@@ -41,9 +40,13 @@ html {
     margin: 0 auto;
     left: 0;
     right: 0;
-    border-radius: 10px;
-    height: 80px; /* Tinggi navbar diperbesar */
-    padding: 15px 20px; /* Padding diperbesar */
+    border-radius: 10px; /* Tambahkan border-radius untuk membuat navbar oval */
+    height: 50px; /* Ubah ukuran tinggi navbar menjadi 50px */
+    padding: 10px 20px; /* Ubah padding navbar menjadi 10px 20px */
+}
+
+.navbar {
+    border-radius: 25px; /* Ubah nilai border-radius menjadi 25px */
 }
 
 .navbar.dark-mode {
