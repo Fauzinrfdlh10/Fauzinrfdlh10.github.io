@@ -195,6 +195,11 @@ html {
     .navbar {
         left: -20px; /* Geser navbar ke kiri 20px */
     }
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
 }
 
 /* Hero Section */
@@ -686,5 +691,6 @@ footer p {
     body {
         overflow-x: hidden;
         width: 100%;
+        position: relative;
     }
 }
