@@ -200,6 +200,9 @@ html {
         width: 100%;
         position: relative;
     }
+    .projects-list li {
+        max-width: 150px; /* Ubah ukuran kotak di project agar sama lebarnya dengan yang berada di skill pada saat mode HP */
+    }
 }
 
 /* Hero Section */
