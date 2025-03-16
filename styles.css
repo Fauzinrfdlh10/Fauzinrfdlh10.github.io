@@ -192,6 +192,9 @@ html {
     .navbar.dark-mode .hamburger span {
         background-color: var(--dark-text);
     }
+    .navbar {
+        left: -20px; /* Geser navbar ke kiri 20px */
+    }
 }
 
 /* Hero Section */
