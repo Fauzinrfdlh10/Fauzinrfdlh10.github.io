@@ -616,9 +616,15 @@ footer p {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .skills-list li:hover, .projects-list li:hover, .contact-card:hover {
+  .skills-list li:hover, .contact-card:hover {
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    animation: pulse 1s infinite;
+  }
+  
+  .projects-list li:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     animation: pulse 1s infinite;
   }
   
@@ -626,6 +632,18 @@ footer p {
     transform: scale(0.9);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     animation: shake 0.5s;
+  }
+  
+  @media (max-width: 768px) {
+    .skills-list li:hover, .contact-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+  
+    .projects-list li:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
   }
   
   @keyframes pulse {
