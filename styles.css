@@ -608,3 +608,24 @@ footer p {
     color: #FFA500;
     text-decoration: underline; /* Efek hover */
 }
+
+/* Animasi ketika gambar atau kotaknya di klik */
+.skills-list li, .projects-list li, .contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-list li:hover, .projects-list li:hover, .contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animasi ketika gambar atau kotaknya di klik */
+.skills-list li, .projects-list li, .contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.skills-list li:hover, .projects-list li:hover, .contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: #444;
+}
